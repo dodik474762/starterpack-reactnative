@@ -103,6 +103,21 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }       
+    }    
+
+    externalNativeBuild {
+        // cmake {
+        //     path "src/main/jni/CMakeLists.txt"
+        //     version "3.30.3"
+        // }
+        splits {
+            abi {
+                enable true
+                reset()
+                include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+                universalApk false
+            }
         }
     }
 }
