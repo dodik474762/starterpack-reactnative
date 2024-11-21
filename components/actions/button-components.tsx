@@ -1,4 +1,4 @@
-import {Text, TouchableNativeFeedback, View} from 'react-native';
+import {Text, TouchableNativeFeedback, View} from 'react-native'; // Import the icon set
 
 const ButtonComponent = (props: any) => {
   const {
@@ -22,7 +22,10 @@ const ButtonComponent = (props: any) => {
           alignItems: 'center',
           margin: margin,
           borderRadius: borderRadius,
+          flexDirection: 'row',
+          
         }}>
+        
         <Text
           style={{
             color: color,
