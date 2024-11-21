@@ -57,7 +57,9 @@ function App(): React.JSX.Element {
         style={backgroundStyle}>
         <AppBar />
         <Input />
-        <InputDatePicker />
+        <InputDatePicker onConfirm={(date: any) => {
+          Alert.alert(date.toDateString());
+        }} onCancel={() => {}}/>
         
         <ButtonComponent
           title="Submit"
