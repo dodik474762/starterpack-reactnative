@@ -33,6 +33,7 @@ import FloatingButton from './components/actions/floating-button';
 import CircleLoading from './components/loading/circle-loading';
 import Input from './components/inputs/input';
 import InputDatePicker from './components/inputs/input-date';
+import InputSelect from './components/inputs/input-select';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -60,6 +61,7 @@ function App(): React.JSX.Element {
         <InputDatePicker onConfirm={(date: any) => {
           Alert.alert(date.toDateString());
         }} onCancel={() => {}}/>
+        <InputSelect />
         
         <ButtonComponent
           title="Submit"

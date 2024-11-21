@@ -9,7 +9,7 @@ const InputDatePicker = (props: any) => {
 
   return (
     <>
-      <View style={{padding: 10}}>
+      <View style={{padding: 10,}}>
         <Button title="Open" onPress={() => setOpen(true)} />
         <DatePicker
           modal
