@@ -1,5 +1,5 @@
 {
-  "name": "ReproducerApp",
+  "name": "StarterApp",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -11,9 +11,10 @@
   },
   "dependencies": {
     "react": "18.3.1",
-    "react-native": "0.76.2",
+    "react-icons": "^5.3.0",
+    "react-native": "^0.76.2",
     "react-native-vector-icons": "^10.2.0",
-    "ReproducerApp": "file:"
+    "StarterApp": "file:"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
