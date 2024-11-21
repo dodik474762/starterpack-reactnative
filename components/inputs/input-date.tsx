@@ -1,12 +1,27 @@
-import { View } from "react-native";
-import DatePicker from "react-native-date-picker";
+import {useState} from 'react';
+import {Button, Text, View} from 'react-native';
+import DatePicker from 'react-native-date-picker';
 
-const InputDatePicker = (props : any) => {
-    const {date = new Date()} = props;
+const InputDatePicker = (props: any) => {
+  const [date, setDate] = useState(new Date());
+  const [open, setOpen] = useState(false);
+
   return (
-    <View style={{ height: 50 }}>
-      <DatePicker date={date} onDateChange={(date) => console.log(date)}/>
-    </View>
+    <>
+      <Button title="Open" onPress={() => setOpen(true)} />
+      <DatePicker
+        modal
+        open={open}
+        date={date}
+        onConfirm={date => {
+          setOpen(false);
+          setDate(date);
+        }}
+        onCancel={() => {
+          setOpen(false);
+        }}
+      />
+    </>
   );
 };
 
