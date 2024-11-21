@@ -2,35 +2,35 @@ import {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
-const InputSelect = () => {
-  const [selectedLanguage, setSelectedLanguage] = useState();
+const InputSelect = (props: any) => {
+  const {title = 'Select', onValueChanges = () => {}, data = []} = props;
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    data.length > 0 ? data[0].value : '',
+  );
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.label}>Select an Option:</Text>
+    <>
+      <Text style={{fontSize: 16, margin: 10}}>{title}</Text>
       <Picker
+        style={{
+          backgroundColor: 'white',
+          marginRight: 10,
+          marginLeft: 10,
+          borderRadius: 10,
+        }}
         selectedValue={selectedLanguage}
-        onValueChange={(itemValue, itemIndex) =>
-          setSelectedLanguage(itemValue)
-        }>
-        <Picker.Item label="Java" value="java" />
-        <Picker.Item label="JavaScript" value="js" />
+        itemStyle={{fontSize: 16}}
+        onValueChange={(itemValue, itemIndex) => {
+          setSelectedLanguage(itemValue);
+          onValueChanges(itemValue);
+        }}>
+        {data.length > 0 &&
+          data.map((item: any) => {
+            return <Picker.Item key={item.value} label={item.label} value={item.value} />;
+          })}
       </Picker>
-    </View>
+    </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  label: {
-    fontSize: 16,
-    marginBottom: 10,
-  },
-});
 
 export default InputSelect;

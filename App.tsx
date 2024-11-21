@@ -61,7 +61,15 @@ function App(): React.JSX.Element {
         <InputDatePicker onConfirm={(date: any) => {
           Alert.alert(date.toDateString());
         }} onCancel={() => {}}/>
-        <InputSelect />
+        <InputSelect data={[{
+          label: 'English',
+          value: 'en',
+        }, {
+          label: 'Spanish',
+          value: 'es',
+        }]} onValueChanges={(value: any) => {
+          console.log(value);
+        }}/>
         
         <ButtonComponent
           title="Submit"
