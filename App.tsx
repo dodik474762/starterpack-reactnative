@@ -32,6 +32,7 @@ import AppBar from './components/appbar/appbar';
 import FloatingButton from './components/actions/floating-button';
 import CircleLoading from './components/loading/circle-loading';
 import Input from './components/inputs/input';
+import InputDatePicker from './components/inputs/input-date';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -56,6 +57,7 @@ function App(): React.JSX.Element {
         style={backgroundStyle}>
         <AppBar />
         <Input />
+        <InputDatePicker />
         
         <ButtonComponent
           title="Submit"

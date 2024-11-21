@@ -12,7 +12,8 @@ const Input = (props: any) => {
     title = 'Example',
     colorTitle = Colors.black,
     withTitle = true,
-    value = '',
+    editable = true,
+    multiline = false,
   } = props;
   return (
     <View style={{padding: 10}}>
@@ -34,7 +35,8 @@ const Input = (props: any) => {
         placeholder="Example"
         onChangeText={onChangeText}
         keyboardType={type}
-        value={value}
+        editable={editable}
+        multiline={multiline}
       />
     </View>
   );
