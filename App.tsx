@@ -51,13 +51,7 @@ function App(): React.JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <AppBar />
-        <Ionicons
-          testID="nextButton"
-          name="arrow-forward"
-          color="black"
-          size={24}
-          style={{backgroundColor: 'transparent'}}
-        />
+        
         <ButtonComponent
           title="Submit"
           margin={10}

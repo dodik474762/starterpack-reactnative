@@ -1,11 +1,12 @@
 import {Text, TouchableNativeFeedback, View} from 'react-native'; // Import the icon set
+import { Colors } from '../../utils/color';
 
 const ButtonComponent = (props: any) => {
   const {
     onPress = () => {},
     title = '',
-    backgroundColor = '#2196f3',
-    color = '#fff',
+    backgroundColor = Colors.bluePrimary,
+    color = Colors.white,
     margin = 0,
     borderRadius = 0,
     fontSize = 16,
