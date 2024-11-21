@@ -1,9 +1,11 @@
 import { ActivityIndicator } from "react-native";
+import { Colors } from "../../utils/color";
 
 
-const CircleLoading = () => {
+const CircleLoading = (props: any) => {
+    const {color = Colors.bluePrimary} = props;
     return (
-        <ActivityIndicator size="large" />
+        <ActivityIndicator size="large" color={color}/>
     );
 }
 

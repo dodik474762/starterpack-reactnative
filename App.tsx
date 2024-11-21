@@ -30,6 +30,7 @@ import ButtonComponent from './components/actions/button-components';
 import Ionicons from 'react-native-vector-icons/MaterialIcons';
 import AppBar from './components/appbar/appbar';
 import FloatingButton from './components/actions/floating-button';
+import CircleLoading from './components/loading/circle-loading';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -60,6 +61,7 @@ function App(): React.JSX.Element {
           borderRadius={10}
           onPress={() => Alert.alert('Button pressed')}
         />
+        <CircleLoading/>
       </ScrollView>
       <FloatingButton />
     </SafeAreaView>
