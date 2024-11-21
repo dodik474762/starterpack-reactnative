@@ -31,6 +31,7 @@ import Ionicons from 'react-native-vector-icons/MaterialIcons';
 import AppBar from './components/appbar/appbar';
 import FloatingButton from './components/actions/floating-button';
 import CircleLoading from './components/loading/circle-loading';
+import Input from './components/inputs/input';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -54,6 +55,7 @@ function App(): React.JSX.Element {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <AppBar />
+        <Input />
         
         <ButtonComponent
           title="Submit"
