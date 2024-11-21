@@ -77,9 +77,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.starter_pack"
+    namespace "com.reproducerapp"
     defaultConfig {
-        applicationId "com.starter_pack"
+        applicationId "com.reproducerapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -103,21 +103,6 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
-        }       
-    }    
-
-    externalNativeBuild {
-        // cmake {
-        //     path "src/main/jni/CMakeLists.txt"
-        //     version "3.30.3"
-        // }
-        splits {
-            abi {
-                enable true
-                reset()
-                include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
-                universalApk false
-            }
         }
     }
 }

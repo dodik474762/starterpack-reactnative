@@ -14,7 +14,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'starter_pack' do
+target 'ReproducerApp' do
   config = use_native_modules!
 
   use_react_native!(
@@ -23,7 +23,7 @@ target 'starter_pack' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'starter_packTests' do
+  target 'ReproducerAppTests' do
     inherit! :complete
     # Pods for testing
   end
