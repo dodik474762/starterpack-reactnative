@@ -27,6 +27,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import ButtonComponent from './components/actions/button-components';
+import Ionicons from 'react-native-vector-icons/MaterialIcons';
+import AppBar from './components/appbar/appbar';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -48,7 +50,20 @@ function App(): React.JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-       <ButtonComponent title="Submit" margin={10} borderRadius={10} onPress={() => Alert.alert('Button pressed')}/>       
+        <AppBar />
+        <Ionicons
+          testID="nextButton"
+          name="arrow-forward"
+          color="black"
+          size={24}
+          style={{backgroundColor: 'transparent'}}
+        />
+        <ButtonComponent
+          title="Submit"
+          margin={10}
+          borderRadius={10}
+          onPress={() => Alert.alert('Button pressed')}
+        />
       </ScrollView>
     </SafeAreaView>
   );
