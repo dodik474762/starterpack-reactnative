@@ -29,6 +29,7 @@ import {
 import ButtonComponent from './components/actions/button-components';
 import Ionicons from 'react-native-vector-icons/MaterialIcons';
 import AppBar from './components/appbar/appbar';
+import FloatingButton from './components/actions/floating-button';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -39,6 +40,7 @@ function App(): React.JSX.Element {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    flex: 1,
   };
 
   return (
@@ -59,6 +61,7 @@ function App(): React.JSX.Element {
           onPress={() => Alert.alert('Button pressed')}
         />
       </ScrollView>
+      <FloatingButton />
     </SafeAreaView>
   );
 }
