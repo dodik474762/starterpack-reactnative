@@ -35,6 +35,7 @@ import Input from './components/inputs/input';
 import InputDatePicker from './components/inputs/input-date';
 import InputSelect from './components/inputs/input-select';
 import InputCheckbox from './components/inputs/input-checkbox';
+import InputRadioBox from './components/inputs/input-radio';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -73,6 +74,9 @@ function App(): React.JSX.Element {
         }}/>
         <InputCheckbox title = "Example Checkbox" onChecked={(value: any) => {
           console.log('checkbox', value);
+        }}/>
+        <InputRadioBox title = "Example RadioBox" onChecked={(value: any) => {
+          console.log('radiobox', value);
         }}/>
         
         <ButtonComponent
