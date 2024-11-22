@@ -36,18 +36,21 @@ type SectionProps = PropsWithChildren<{
 }>;
 const Stack: any = createNativeStackNavigator();
 
+const Home = () => {
+  return (
+    <View>
+      <Text>Home</Text>
+    </View>
+  );
+}
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-    <Stack.Navigator>
-      <Stack.Screen
-        name="Main"
-        component={Example}
-        options={{title: 'Welcome'}}
-      />
-      <Stack.Screen name="Profile" component={Example} />
-    </Stack.Navigator>
-  </NavigationContainer>
+      <Home />
+      {/* <Stack.Navigator initialRouteName="MainApp">
+        <Stack.Screen name="MainApp" component={Home} />
+      </Stack.Navigator> */}
+    </NavigationContainer>
   );
 }
 

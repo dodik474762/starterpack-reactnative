@@ -17,6 +17,7 @@
     "react-native": "^0.76.2",
     "react-native-date-picker": "^5.0.7",
     "react-native-image-picker": "^7.1.2",
+    "react-native-screens": "^3.35.0",
     "react-native-vector-icons": "^10.2.0",
     "StarterApp": "file:"
   },
