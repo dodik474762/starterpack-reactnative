@@ -34,6 +34,7 @@ import CircleLoading from './components/loading/circle-loading';
 import Input from './components/inputs/input';
 import InputDatePicker from './components/inputs/input-date';
 import InputSelect from './components/inputs/input-select';
+import InputCheckbox from './components/inputs/input-checkbox';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -69,6 +70,9 @@ function App(): React.JSX.Element {
           value: 'es',
         }]} onValueChanges={(value: any) => {
           console.log(value);
+        }}/>
+        <InputCheckbox title = "Example Checkbox" onChecked={(value: any) => {
+          console.log('checkbox', value);
         }}/>
         
         <ButtonComponent
