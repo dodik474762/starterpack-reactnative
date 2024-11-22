@@ -61,8 +61,8 @@ function App(): React.JSX.Element {
         <AppBar />
         <Input />
         <InputDatePicker onConfirm={(date: any) => {
-          Alert.alert(date.toDateString());
-        }} onCancel={() => {}}/>
+          
+        }} onCancel={() => {}} title="Input Date"/>
         <InputSelect data={[{
           label: 'English',
           value: 'en',
