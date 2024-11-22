@@ -1,4 +1,10 @@
-import {Alert, SafeAreaView, ScrollView, StatusBar} from 'react-native';
+import {
+  Alert,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  useColorScheme,
+} from 'react-native';
 import AppBar from '../../components/appbar/appbar';
 import Input from '../../components/inputs/input';
 import InputDatePicker from '../../components/inputs/input-date';
@@ -9,9 +15,16 @@ import InputSingleImage from '../../components/inputs/input-single-image';
 import ButtonComponent from '../../components/actions/button-components';
 import CircleLoading from '../../components/loading/circle-loading';
 import FloatingButton from '../../components/actions/floating-button';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const MainApp = (props: any) => {
-  const {backgroundStyle, isDarkMode} = props;
+  const {navigation = {}} = props;
+  const isDarkMode = useColorScheme() === 'dark';
+
+  const backgroundStyle = {
+    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    flex: 1,
+  };
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -74,7 +87,7 @@ const MainApp = (props: any) => {
         />
         <CircleLoading />
       </ScrollView>
-      <FloatingButton />
+      <FloatingButton onPress={() => navigation.navigate('example')} />
     </SafeAreaView>
   );
 };
