@@ -11,24 +11,32 @@ const InputSelect = (props: any) => {
   return (
     <>
       <Text style={{fontSize: 16, margin: 10}}>{title}</Text>
-      <Picker
-        style={{
-          backgroundColor: 'white',
-          marginRight: 10,
-          marginLeft: 10,
-          borderRadius: 10,
-        }}
-        selectedValue={selectedLanguage}
-        itemStyle={{fontSize: 16}}
-        onValueChange={(itemValue, itemIndex) => {
-          setSelectedLanguage(itemValue);
-          onValueChanges(itemValue);
-        }}>
-        {data.length > 0 &&
-          data.map((item: any) => {
-            return <Picker.Item key={item.value} label={item.label} value={item.value} />;
-          })}
-      </Picker>
+      <View style= {{
+            backgroundColor: 'white',
+            marginRight: 10,
+            marginLeft: 10,
+            borderRadius: 10,
+            height: 50,
+          }}>
+        <Picker
+          selectedValue={selectedLanguage}
+          itemStyle={{fontSize: 16}}
+          onValueChange={(itemValue, itemIndex) => {
+            setSelectedLanguage(itemValue);
+            onValueChanges(itemValue);
+          }}>
+          {data.length > 0 &&
+            data.map((item: any) => {
+              return (
+                <Picker.Item
+                  key={item.value}
+                  label={item.label}
+                  value={item.value}
+                />
+              );
+            })}
+        </Picker>
+      </View>
     </>
   );
 };
