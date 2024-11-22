@@ -15,7 +15,7 @@ const InputSelect = (props: any) => {
             backgroundColor: 'white',
             marginRight: 10,
             marginLeft: 10,
-            borderRadius: 10,
+            borderRadius: 5,
             height: 50,
           }}>
         <Picker
