@@ -36,6 +36,7 @@ import InputDatePicker from './components/inputs/input-date';
 import InputSelect from './components/inputs/input-select';
 import InputCheckbox from './components/inputs/input-checkbox';
 import InputRadioBox from './components/inputs/input-radio';
+import InputSingleImage from './components/inputs/input-single-image';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -78,6 +79,7 @@ function App(): React.JSX.Element {
         <InputRadioBox title = "Example RadioBox" onChecked={(value: any) => {
           console.log('radiobox', value);
         }}/>
+        <InputSingleImage/>
         
         <ButtonComponent
           title="Submit"
