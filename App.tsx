@@ -79,7 +79,9 @@ function App(): React.JSX.Element {
         <InputRadioBox title = "Example RadioBox" onChecked={(value: any) => {
           console.log('radiobox', value);
         }}/>
-        <InputSingleImage/>
+        <InputSingleImage onImageResult={(file : any) => {
+          console.log(file);
+        }}/>
         
         <ButtonComponent
           title="Submit"
