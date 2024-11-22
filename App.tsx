@@ -82,6 +82,9 @@ function App(): React.JSX.Element {
         <InputSingleImage onImageResult={(file : any) => {
           console.log(file);
         }}/>
+        <InputSingleImage onImageResult={(file : any) => {
+          console.log(file);
+        }}/>
         
         <ButtonComponent
           title="Submit"

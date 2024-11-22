@@ -48,6 +48,7 @@ const InputSingleImage = (props: any) => {
           console.log('ImagePicker Error: ', response.errorCode);
         } else if (response.assets) {
           setImageUri(response.assets[0].uri);
+          onImageResult(response.assets[0].uri);
         }
       },
     );
@@ -71,6 +72,7 @@ const InputSingleImage = (props: any) => {
           );
         } else if (response.assets) {
           setImageUri(response.assets[0].uri);
+          onImageResult(response.assets[0].uri);
         }
       },
     );
@@ -185,7 +187,10 @@ const InputSingleImage = (props: any) => {
               name="cancel"
               style={{position: 'absolute', top: 10, right: 10}}
               size={24}
-              onPress={() => setImageUri(null)}
+              onPress={() => {
+                setImageUri(null);
+                onImageResult(null);
+              }}
               color={Colors.lightBlue}
             />
           </>
