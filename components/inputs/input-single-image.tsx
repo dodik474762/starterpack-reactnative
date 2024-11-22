@@ -1,20 +1,79 @@
-import {Alert, Modal, Pressable, StyleSheet, Text, View} from 'react-native';
+import {
+  Alert,
+  Image,
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import {Colors} from '../../utils/color';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {useState} from 'react';
 import Separator from '../others/separator';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
+import {requestCameraPermission} from '../../utils/permissions';
 
 const InputSingleImage = (props: any) => {
   const {onImageResult = () => {}} = props;
   const [modalVisible, setModalVisible] = useState(false);
+  const [imageUri, setImageUri]: any = useState(null);
 
   const addImage = () => {
     setModalVisible(true);
   };
 
-  const onImageAttachFrom = (from: String) => {
+  const onImageAttachFrom = async (from: String) => {
     setModalVisible(false);
-    onImageResult(from);
+    if (from == 'camera') {
+      await requestCameraPermission();
+      takePhoto();
+    }
+    if (from == 'gallery') {
+      chooseImage();
+    }
+  };
+
+  const chooseImage = () => {
+    launchImageLibrary(
+      {
+        mediaType: 'photo',
+        quality: 1, // Optional, for better quality
+        includeBase64: false, // Optional, include base64 string of the image
+      },
+      response => {
+        if (response.didCancel) {
+          console.log('User cancelled image picker');
+        } else if (response.errorCode) {
+          console.log('ImagePicker Error: ', response.errorCode);
+        } else if (response.assets) {
+          setImageUri(response.assets[0].uri);
+        }
+      },
+    );
+  };
+
+  const takePhoto = () => {
+    launchCamera(
+      {
+        mediaType: 'photo',
+        quality: 1, // Optional, for better quality
+        includeBase64: false, // Optional, include base64 string of the image
+      },
+      response => {
+        if (response.didCancel) {
+          console.log('User cancelled image picker');
+        } else if (response.errorCode) {
+          console.log(
+            'ImagePicker Error: ',
+            response.errorCode,
+            response.errorMessage,
+          );
+        } else if (response.assets) {
+          setImageUri(response.assets[0].uri);
+        }
+      },
+    );
   };
 
   const ModalChooseImagePict = () => {
@@ -105,14 +164,32 @@ const InputSingleImage = (props: any) => {
           flexDirection: 'row',
         }}>
         <ModalChooseImagePict />
-        <MaterialIcons
-          testID="addImage"
-          name="add-a-photo"
-          style={{marginRight: 10, marginTop: 60}}
-          size={50}
-          onPress={addImage}
-          color={Colors.gray}
-        />
+        {imageUri == null ? (
+          <MaterialIcons
+            testID="addImage"
+            name="add-a-photo"
+            style={{marginRight: 10, marginTop: 60}}
+            size={50}
+            onPress={addImage}
+            color={Colors.gray}
+          />
+        ) : (
+          <>
+            <Image
+              source={{uri: imageUri}}
+              resizeMode="cover"
+              style={{width: '100%', height: '100%'}}
+            />
+            <MaterialIcons
+              testID="removeImage"
+              name="cancel"
+              style={{position: 'absolute', top: 10, right: 10}}
+              size={24}
+              onPress={() => setImageUri(null)}
+              color={Colors.lightBlue}
+            />
+          </>
+        )}
       </View>
     </>
   );
@@ -161,7 +238,7 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: 'center',
-    fontSize: 16
+    fontSize: 16,
   },
 });
 
