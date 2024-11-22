@@ -5666,6 +5666,11 @@ react-native-date-picker@^5.0.7:
   resolved "https://registry.npmjs.org/react-native-date-picker/-/react-native-date-picker-5.0.7.tgz"
   integrity sha512-/RodyCZWjb+f3f4YHqKbWFYczGm+tNngwbVSB6MLGgt5Kl7LQXpv4QE6ybnHW+DM4LteTP8A6lj8LEkQ7+usLQ==
 
+react-native-image-picker@^7.1.2:
+  version "7.1.2"
+  resolved "https://registry.npmjs.org/react-native-image-picker/-/react-native-image-picker-7.1.2.tgz"
+  integrity sha512-b5y5nP60RIPxlAXlptn2QwlIuZWCUDWa/YPUVjgHc0Ih60mRiOg1PSzf0IjHSLeOZShCpirpvSPGnDExIpTRUg==
+
 react-native-vector-icons@^10.2.0:
   version "10.2.0"
   resolved "https://registry.npmjs.org/react-native-vector-icons/-/react-native-vector-icons-10.2.0.tgz"
@@ -6222,7 +6227,7 @@ stacktrace-parser@^0.1.10:
   dependencies:
     type-fest "^0.7.1"
 
-"StarterApp@file:":
+"StarterApps@file:":
   version "0.0.1"
   resolved "file:"
   dependencies:
@@ -6230,8 +6235,9 @@ stacktrace-parser@^0.1.10:
     react "18.3.1"
     react-native "^0.76.2"
     react-native-date-picker "^5.0.7"
+    react-native-image-picker "^7.1.2"
     react-native-vector-icons "^10.2.0"
-    StarterApp "file:"
+    StarterApps "file:"
 
 statuses@~1.5.0:
   version "1.5.0"
