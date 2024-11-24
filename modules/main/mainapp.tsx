@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import {
   Alert,
   SafeAreaView,
@@ -16,10 +17,12 @@ import ButtonComponent from '../../components/actions/button-components';
 import CircleLoading from '../../components/loading/circle-loading';
 import FloatingButton from '../../components/actions/floating-button';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import { useNavigation } from '@react-navigation/native';
 
 const MainApp = (props: any) => {
-  const {navigation = {}} = props;
+  const {} = props;
   const isDarkMode = useColorScheme() === 'dark';
+  const navigation: any = useNavigation();
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -37,7 +40,9 @@ const MainApp = (props: any) => {
         <AppBar />
         <Input />
         <InputDatePicker
-          onConfirm={(date: any) => {}}
+          onConfirm={(date: any) => {
+            console.log('date', date);
+          }}
           onCancel={() => {}}
           title="Input Date"
         />
@@ -85,9 +90,17 @@ const MainApp = (props: any) => {
           borderRadius={10}
           onPress={() => Alert.alert('Button pressed')}
         />
+        <ButtonComponent
+          title="Navigation"
+          margin={10}
+          borderRadius={10}
+          onPress={() => {
+            navigation.navigate('example');
+          }}
+        />
         <CircleLoading />
       </ScrollView>
-      <FloatingButton onPress={() => navigation.navigate('example')} />
+      <FloatingButton onPress={() => console.log('Button pressed')} />
     </SafeAreaView>
   );
 };
