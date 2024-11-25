@@ -6,54 +6,32 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  Alert,
-  Button,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import MainApp from './modules/main/mainapp';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import MainApp from './modules/main/mainapp';
 import Example from './modules/example/example';
 import ButtonComponent from './components/actions/button-components';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-const Stack: any = createNativeStackNavigator();
+const Stack = createNativeStackNavigator();
 
-const Home = () => {
+function RootStack() {
   return (
-    <View>
-      <Text>Home</Text>
-      <ButtonComponent title="tes routing" onPress={() => {
-        
-      }}/>
-    </View>
+    <Stack.Navigator initialRouteName="main">
+      <Stack.Screen
+        name="main"
+        component={MainApp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen name="example" component={Example} />
+    </Stack.Navigator>
   );
 }
+
 function App(): React.JSX.Element {
   return (
     <NavigationContainer>
-      <Home />
-      {/* <Stack.Navigator initialRouteName="MainApp">
-        <Stack.Screen name="MainApp" component={Home} />
-      </Stack.Navigator> */}
+      <RootStack />
     </NavigationContainer>
   );
 }
