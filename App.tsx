@@ -30,6 +30,7 @@ import MainApp from './modules/main/mainapp';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Example from './modules/example/example';
+import ButtonComponent from './components/actions/button-components';
 
 type SectionProps = PropsWithChildren<{
   title: string;
@@ -40,6 +41,9 @@ const Home = () => {
   return (
     <View>
       <Text>Home</Text>
+      <ButtonComponent title="tes routing" onPress={() => {
+        
+      }}/>
     </View>
   );
 }
